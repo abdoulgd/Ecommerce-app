@@ -1,22 +1,46 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
+# Node.js (pour Angular)
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Angular / Typescript
+*.tsbuildinfo
+.angular/
+
+# VSCode
 .vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Spring Boot (backend)
+# Target directory for Maven (JAR, WAR, etc.)
+target/
+
+# IntelliJ IDEA project files / # JetBrains IDE files
+.idea/
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# Maven (dependency, build, etc.)
+.mvn/
+.pom.xml.user
+
+# Logs
+*.log
+logs/
+
+# Gradle (si tu utilises Gradle)
+.gradle/
+build/
+
+# Temporary files
+*.tmp
+*.swp
