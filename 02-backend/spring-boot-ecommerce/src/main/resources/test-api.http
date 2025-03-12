@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/products
+
+###
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "sku": "TEST123",
+  "name": "Produit Test",
+  "description": "Un produit de test",
+  "unitPrice": 99.99,
+  "imageUrl": "http://example.com/test.jpg",
+  "active": true,
+  "unitsInStock": 10,
+  "category": "http://localhost:8080/api/product-category/1"
+}
