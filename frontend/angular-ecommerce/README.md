@@ -59,12 +59,17 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ```Git commande
-    Branch
-    - git branch
-    - git checkout -b backend   #pour la creation d'une brance back et front et en meme temps basculer sur une branche
-    - git checkout -b frontend
-    - git checkout frontend    # pour basculer par ex dans la branch frontend
-    - git merge frontend   # Fusionner la branche frontend dans main
-    - git merge backend   # Fusionner la branche backend dans main
+    Branch:
+        - git branch
+    Backend:
+        - git checkout -b backend   #pour la creation d'une brance back en meme temps basculer sur la branche
+        - git checkout backend    # pour basculer par ex dans la branch backend
+    Frontend:
+        - git checkout -b backend   #pour la creation d'une brance front en meme temps basculer sur la branche
+        - git checkout frontend    # pour basculer par ex dans la branch frontend
+    Main/Master:
+        - git checkout
+        - git merge frontend ou git merge backend
+        - git push origin main
 ```
 
