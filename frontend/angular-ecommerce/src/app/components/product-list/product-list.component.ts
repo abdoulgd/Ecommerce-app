@@ -18,11 +18,17 @@ export class ProductListComponent {
 
   products: Product [] = [];
   #currentCategoryId: number = 1;  // à revoir
+  #currentCategoryName: string = "";
 
   ngOnInit() {
     this.#route.paramMap.subscribe(() => {
       this.listProducts();
     });
+  }
+
+  // get cuurent category Name
+  get CurrentCategoryName(): string {
+    return this.#currentCategoryName;
   }
 
   listProducts() {
@@ -32,9 +38,13 @@ export class ProductListComponent {
     if (hasCategoryId) {
       // get the "id" param string. convert string to a number using the "+" symbol or Number()
       this.#currentCategoryId = Number(this.#route.snapshot.paramMap.get('id')!);
+
+      // get the "name" param string
+      this.#currentCategoryName = this.#route.snapshot.paramMap.get('name')!;
     } else {
       // not category id available ... default to category id 1
       this.#currentCategoryId = 1;
+      this.#currentCategoryName = 'Books';
     }
 
     this.productService.getProductList(this.#currentCategoryId).subscribe(
