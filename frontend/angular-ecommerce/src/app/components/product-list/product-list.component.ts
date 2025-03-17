@@ -17,8 +17,9 @@ export class ProductListComponent {
   //readonly #productId = Number(this.#route.snapshot.paramMap.get('id')!);
 
   products: Product [] = [];
-  #currentCategoryId: number = 1;  // à revoir
+  #currentCategoryId: number = 1;
   #currentCategoryName: string = "";
+  #searchMode: boolean = false;
 
   ngOnInit() {
     this.#route.paramMap.subscribe(() => {
@@ -32,6 +33,25 @@ export class ProductListComponent {
   }
 
   listProducts() {
+    this.#searchMode = this.#route.snapshot.paramMap.has('keyword');
+
+    if (this.#searchMode) {
+      this.handleSearchProducts();
+    } else {
+      this.handleListProducts();
+    }
+  }
+
+  handleSearchProducts() {
+    const theKeyword: string = this.#route.snapshot.paramMap.get('keyword')!;
+
+    // now search for the products using keyword
+    this.productService.searchProducts(theKeyword).subscribe(
+      data => this.products = data
+    );
+  }
+
+  handleListProducts() {
     // check if "id" parameter is available
     const hasCategoryId: boolean = this.#route.snapshot.paramMap.has('id');
 

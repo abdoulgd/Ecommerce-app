@@ -1,6 +1,19 @@
 GET http://localhost:8080/api/products
 
 ###
+GET http://localhost:8080/api/product-category
+
+###
+GET http://localhost:8080/api/product-category/1
+
+###
+GET http://localhost:8080/api/products/search/findByCategoryId?id=1
+
+###
+GET http://localhost:8080/api/products/search/findByNameContaining?name=Data
+
+
+###
 POST http://localhost:8080/api/products
 Content-Type: application/json
 

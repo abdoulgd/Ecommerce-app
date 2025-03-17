@@ -17,6 +17,14 @@
                         </div>
                     </div>
                 }
+
+                <!--if products empty then display a message-->
+                @if (products?.length == 0) {
+                    <div class="alert alert-warning col-md-12" role="alert ">
+                        No products found.
+                    </div>
+                }
+
             </div>
         </div>
     </div>
