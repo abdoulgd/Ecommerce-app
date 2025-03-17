@@ -68,7 +68,7 @@ For more information on using the Angular CLI, including detailed command refere
         - git checkout -b backend   #pour la creation d'une brance front en meme temps basculer sur la branche
         - git checkout frontend    # pour basculer par ex dans la branch frontend
     Main/Master:
-        - git checkout
+        - git checkout main
         - git merge frontend ou git merge backend
         - git push origin main
 ```
