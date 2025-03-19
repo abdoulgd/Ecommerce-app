@@ -4,6 +4,8 @@ import { Product } from '../../common/product';
 import { CurrencyPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { CartItem } from '../../common/cart-item';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +16,7 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 export class ProductListComponent {
   private readonly productService = inject(ProductService);
   readonly #route = inject(ActivatedRoute);
+  private readonly cartService = inject(CartService);
 
   //readonly #productId = Number(this.#route.snapshot.paramMap.get('id')!);
 
@@ -110,7 +113,7 @@ export class ProductListComponent {
   }
 
   updatePageSize(pageSize: string) {
-    this.thePageSize = +pageSize;
+    this.thePageSize = Number(pageSize);
     this.thePageNumber = 1;
     this.listProducts();
   }
@@ -122,6 +125,13 @@ export class ProductListComponent {
       this.thePageSize = data.page.size;
       this.theTotalElements = data.page.totalElements;
     };
+  }
+
+  addToCart(product: Product) {
+    console.log(`Adding to cart: ${product.name}, ${product.unitPrice}`);
+
+    const theCartItem = new CartItem(product);
+    this.cartService.addToCart(theCartItem);
   }
 
 }
