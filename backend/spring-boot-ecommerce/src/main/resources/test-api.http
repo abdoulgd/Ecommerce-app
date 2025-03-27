@@ -4,22 +4,6 @@ GET http://localhost:8080/api/products
 GET http://localhost:8080/api/products/1
 
 ###
-GET http://localhost:8080/api/products?page=5&size=10
-
-###
-GET http://localhost:8080/api/product-category
-
-###
-GET http://localhost:8080/api/product-category/1
-
-###
-GET http://localhost:8080/api/products/search/findByCategoryId?id=1
-
-###
-GET http://localhost:8080/api/products/search/findByNameContaining?name=Data
-
-
-###
 POST http://localhost:8080/api/products
 Content-Type: application/json
 
@@ -33,3 +17,36 @@ Content-Type: application/json
   "unitsInStock": 10,
   "category": "http://localhost:8080/api/product-category/1"
 }
+
+###
+GET http://localhost:8080/api/products?page=5&size=10
+
+### product-category
+GET http://localhost:8080/api/product-category
+
+###
+GET http://localhost:8080/api/product-category/1
+
+### products by category
+GET http://localhost:8080/api/products/search/findByCategoryId?id=1
+
+###
+GET http://localhost:8080/api/products/search/findByNameContaining?name=Data
+
+### countries
+GET http://localhost:8080/api/countries
+
+###
+POST http://localhost:8080/api/countries
+Content-Type: application/json
+
+{
+    "code": "GN",
+    "name": "GUINEA"
+}
+
+### states
+GET http://localhost:8080/api/states
+
+### states by state
+GET http://localhost:8080/api/states/search/findByCountryCode?code=IN
