@@ -12,6 +12,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="firstName" type="text">
+
+                                @if (firstName?.invalid && (firstName?.dirty || firstName?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (firstName?.hasError('required') || firstName?.hasError('notOnlyWhitespace')) {
+                                            <div>First Name is required</div>
+                                        }
+
+                                        @if (firstName?.hasError('minlength')) {
+                                            <div>First Name must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -20,6 +32,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="lastName" type="text">
+
+                                @if (lastName?.invalid && (lastName?.dirty || lastName?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (lastName?.hasError('required') || lastName?.hasError('notOnlyWhitespace')) {
+                                            <div>Last Name is required</div>
+                                        }
+
+                                        @if (lastName?.hasError('minlength')) {
+                                            <div>Last Name must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -28,6 +52,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="email" type="text">
+
+                                @if (email?.invalid && (email?.dirty || email?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (email?.hasError('required')) {
+                                            <div>Email is required</div>
+                                        }
+
+                                        @if (email?.hasError('pattern')) {
+                                            <div>Email must be a valid email address format</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -46,6 +82,14 @@
                                         <option [ngValue]="country">{{ country.name }}</option>
                                     }
                                 </select>
+
+                                @if (shippingAddressCountry?.invalid && (shippingAddressCountry?.dirty || shippingAddressCountry?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressCountry?.hasError('required')) {
+                                            <div>Country is required</div>
+                                        } 
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -55,6 +99,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="street" type="text">
+
+                                @if (shippingAddressStreet?.invalid && (shippingAddressStreet?.dirty || shippingAddressStreet?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressStreet?.hasError('required') || shippingAddressStreet?.hasError('notOnlyWhitespace')) {
+                                            <div>Street is required</div>
+                                        }
+
+                                        @if (shippingAddressStreet?.hasError('minlength')) {
+                                            <div>Street must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -64,6 +120,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="city" type="text">
+                                
+                                @if (shippingAddressCity?.invalid && (shippingAddressCity?.dirty || shippingAddressCity?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressCity?.hasError('required') || shippingAddressCity?.hasError('notOnlyWhitespace')) {
+                                            <div>City is required</div>
+                                        }
+
+                                        @if (shippingAddressCity?.hasError('minlength')) {
+                                            <div>City must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -77,6 +145,14 @@
                                         <option [ngValue]="State">{{ State.name }}</option>
                                     }
                                 </select>
+
+                                @if (shippingAddressState?.invalid && (shippingAddressState?.dirty || shippingAddressState?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressState?.hasError('required')) {
+                                            <div>State is required</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -86,10 +162,21 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="zipCode" type="text">
+
+                                @if (shippingAddressZipCode?.invalid && (shippingAddressZipCode?.dirty || shippingAddressZipCode?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressZipCode?.hasError('required') || shippingAddressZipCode?.hasError('notOnlyWhitespace')) {
+                                            <div>Zip Code is required</div>
+                                        }
+
+                                        @if (shippingAddressZipCode?.hasError('pattern')) {
+                                            <div>Zip Code must be 5 digits</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -114,6 +201,14 @@
                                         <option [ngValue]="country">{{ country.name }}</option>
                                     }
                                 </select>
+
+                                @if (billingAddressCountry?.invalid && (billingAddressCountry?.dirty || billingAddressCountry?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (shippingAddressCountry?.hasError('required')) {
+                                            <div>Country is required</div>
+                                        } 
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -123,6 +218,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="street" type="text">
+
+                                @if (billingAddressStreet?.invalid && (billingAddressStreet?.dirty || billingAddressStreet?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (billingAddressStreet?.hasError('required') || billingAddressStreet?.hasError('notOnlyWhitespace')) {
+                                            <div>Street is required</div>
+                                        }
+
+                                        @if (billingAddressStreet?.hasError('minlength')) {
+                                            <div>Street must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -132,6 +239,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="city" type="text">
+
+                                @if (billingAddressCity?.invalid && (billingAddressCity?.dirty || billingAddressCity?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (billingAddressCity?.hasError('required') || billingAddressCity?.hasError('notOnlyWhitespace')) {
+                                            <div>City is required</div>
+                                        }
+
+                                        @if (billingAddressCity?.hasError('minlength')) {
+                                            <div>City must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -145,6 +264,14 @@
                                         <option [ngValue]="State">{{ State.name }}</option>
                                     }
                                 </select>
+
+                                @if (billingAddressState?.invalid && (billingAddressState?.dirty || billingAddressState?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (billingAddressState?.hasError('required')) {
+                                            <div>State is required</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -154,10 +281,21 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="zipCode" type="text">
+
+                                @if (billingAddressZipCode?.invalid && (billingAddressZipCode?.dirty || billingAddressZipCode?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (billingAddressZipCode?.hasError('required') || billingAddressZipCode?.hasError('notOnlyWhitespace')) {
+                                            <div>Zip Code is required</div>
+                                        }
+
+                                        @if (billingAddressZipCode?.hasError('pattern')) {
+                                            <div>Zip Code must be 5 digits</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -173,6 +311,14 @@
                                     <option>VISA</option>
                                     <option>Mastercard</option>
                                 </select>
+
+                                @if (creditCardType?.invalid && (creditCardType?.dirty || creditCardType?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (creditCardType?.hasError('required')) {
+                                            <div>Card Type is required</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -182,6 +328,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="nameOnCard" type="text">
+
+                                @if (creditCardNameOnCard?.invalid && (creditCardNameOnCard?.dirty || creditCardNameOnCard?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (creditCardNameOnCard?.hasError('required') || creditCardNameOnCard?.hasError('notOnlyWhitespace')) {
+                                            <div>Name on Card is required</div>
+                                        }
+
+                                        @if (creditCardNameOnCard?.hasError('minlength')) {
+                                            <div>Name on Card must be at least 2 characters</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -191,6 +349,39 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="cardNumber" type="text">
+
+                                @if (creditCardNumber?.invalid && (creditCardNumber?.dirty || creditCardNumber?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (creditCardNumber?.hasError('required') || creditCardNumber?.hasError('notOnlyWhitespace')) {
+                                            <div>Card Number is required</div>
+                                        }
+
+                                        @if (creditCardNumber?.hasError('pattern')) {
+                                            <div>Card Number must be 16 digits</div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><label>Security Code</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="securityCode" type="text">
+
+                                @if (creditCardSecurityCode?.invalid && (creditCardSecurityCode?.dirty || creditCardSecurityCode?.touched)) {
+                                    <div class="alert alert-danger mt-1">
+                                        @if (creditCardSecurityCode?.hasError('required') || creditCardSecurityCode?.hasError('notOnlyWhitespace')) {
+                                            <div>Security Code is required</div>
+                                        }
+
+                                        @if (creditCardSecurityCode?.hasError('pattern')) {
+                                            <div>Security Code must be 3 digits</div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
