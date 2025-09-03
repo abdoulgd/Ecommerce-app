@@ -5,6 +5,7 @@ import { FormService } from '../../services/form.service';
 import { Country } from '../../common/country';
 import { State } from '../../common/state';
 import { CHECKOUT_VALIDATORS, ShopValidators } from '../../validators/shop-validators';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,11 +14,12 @@ import { CHECKOUT_VALIDATORS, ShopValidators } from '../../validators/shop-valid
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent {
-  readonly formBuilder = inject(FormBuilder);
-  readonly formService = inject(FormService);
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly formService = inject(FormService);
+  private readonly cartService = inject(CartService);
 
-  readonly totalPrice: number = 0;
-  readonly totalQuantity: number = 0;
+  totalPrice: number = 0;
+  totalQuantity: number = 0;
 
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
@@ -106,7 +108,9 @@ export class CheckoutComponent {
     this.checkoutFormGroup;
     this.getCreditCardMonths();
     this.getCreditCardYears();
-    this.getCountries(); 
+    this.getCountries();
+
+    this.reviewCartDetails();
   }
 
   // getter methods
@@ -132,6 +136,13 @@ export class CheckoutComponent {
   get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCard')!.get('securityCode'); }
   get creditCardExpirationMonth() { return this.checkoutFormGroup.get('creditCard')!.get('expirationMonth'); }
   get creditCardExpirationYear() { return this.checkoutFormGroup.get('creditCard')!.get('expirationYear'); }
+
+  // suscribe to cartService totalQuantity and totalPrice
+  reviewCartDetails() {
+    this.cartService.totalQuantity.subscribe(data => this.totalQuantity = data);
+
+    this.cartService.totalPrice.subscribe(data => this.totalPrice = data);
+  }
 
   // populate credit card months
   getCreditCardMonths() {
