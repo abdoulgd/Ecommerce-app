@@ -50,3 +50,6 @@ GET http://localhost:8080/api/states
 
 ### states by state
 GET http://localhost:8080/api/states/search/findByCountryCode?code=IN
+
+### checkout
+POST http://localhost:8080/api/checkout/purchase
