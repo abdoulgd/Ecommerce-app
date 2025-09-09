@@ -13,6 +13,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            // Pour supprimer les warnings relatifs aux dépendances CommonJS
+            /*"allowedCommonJsDependencies": [
+              "@babel/runtime-corejs3",
+              "cross-fetch",
+              "p-cancelable",
+              "tiny-emmitter",
+              "detect-node",
+            ],*/
             "outputPath": "dist/angular-ecommerce",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -41,9 +49,9 @@
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
-            "ssr": {
+            /*"ssr": {
               "entry": "src/server.ts"
-            }
+            }*/
           },
           "configurations": {
             "production": {

@@ -5,6 +5,12 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 export const routes: Routes = [
+    //{path: 'order-history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
+    //{path: 'members', component: MembersPageComponent,  canActivate: [AuthGuard] },
+  
+    //{ path: 'login/callback', component: AuthComponent },
+    //{ path: 'login', component: LoginComponent },
+
     { path: 'checkout', component: CheckoutComponent },
     { path: 'cart-details', component: CartDetailsComponent },
     { path: 'products/:id', component: ProductDetailsComponent },
