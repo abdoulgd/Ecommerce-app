@@ -74,3 +74,7 @@ For more information on using the Angular CLI, including detailed command refere
         - git push origin main
 ```
 
+### Pour montrer les processus en cours
+- lsof -i :4200 => ex: port Angular 4200
+### Pour killer un processus
+- kill -9 <PID>

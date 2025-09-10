@@ -15,6 +15,10 @@
     background:#205b8d
 }
 
+/*.security-btn:hover{
+    background:#05143f
+}*/
+
 /*
     Copy from styles.css -> .form-header
     Rename as .login-status-header
@@ -44,3 +48,17 @@
     -moz-transition:all .5s ease;
     transition:all .5s ease
 }
+
+/*.btn {
+  background-color: #FCA311;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e5940d;
+}*/
