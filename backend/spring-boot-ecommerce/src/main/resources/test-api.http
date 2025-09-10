@@ -45,6 +45,9 @@ Content-Type: application/json
     "name": "GUINEA"
 }
 
+### Customers not allowed => notFund
+GET http://localhost:8080/api/customers
+
 ### states
 GET http://localhost:8080/api/states
 
