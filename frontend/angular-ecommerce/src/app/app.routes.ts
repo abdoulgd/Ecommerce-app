@@ -3,10 +3,12 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { MembersPageComponent } from './components/members-page/members-page.component';
+import { authGuardFn } from '@auth0/auth0-angular';
 
 export const routes: Routes = [
     //{path: 'order-history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
-    //{path: 'members', component: MembersPageComponent,  canActivate: [AuthGuard] },
+    {path: 'members', component: MembersPageComponent,  canActivate: [authGuardFn] },
   
     //{ path: 'login/callback', component: AuthComponent },
     //{ path: 'login', component: LoginComponent },

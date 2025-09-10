@@ -1,10 +1,11 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login-status',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './login-status.component.html',
   styleUrl: './login-status.component.css'
 })
