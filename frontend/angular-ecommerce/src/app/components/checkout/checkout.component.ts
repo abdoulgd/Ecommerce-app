@@ -38,6 +38,11 @@ export class CheckoutComponent {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
 
+  storage: Storage = sessionStorage;
+
+  // read the user's email address from browser storage
+  private  theEmail = JSON.parse(this.storage.getItem('userEmail')!);
+
   readonly checkoutFormGroup = this.formBuilder.group({
     customer: this.formBuilder.group({
       firstName: new FormControl('', [
@@ -50,7 +55,7 @@ export class CheckoutComponent {
         Validators.minLength(CHECKOUT_VALIDATORS.MIN_NAME_LENGTH),
         ShopValidators.notOnlyWhitespace
       ]),
-      email: new FormControl('', [
+      email: new FormControl(this.theEmail, [
         Validators.required,
         Validators.pattern(CHECKOUT_VALIDATORS.EMAIL_PATTERN)
       ]) 

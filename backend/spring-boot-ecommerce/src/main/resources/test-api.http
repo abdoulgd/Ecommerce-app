@@ -48,6 +48,9 @@ Content-Type: application/json
 ### Customers not allowed => notFund
 GET http://localhost:8080/api/customers
 
+###
+GET http://localhost:8080/api/orders
+
 ### states
 GET http://localhost:8080/api/states
 
@@ -56,3 +59,9 @@ GET http://localhost:8080/api/states/search/findByCountryCode?code=IN
 
 ### checkout
 POST http://localhost:8080/api/checkout/purchase
+
+### find by email
+http://localhost:8080/api/orders/search
+
+###
+GET http://localhost:8080/api/orders/search/findByCustomerEmail?email=john.doe@luv2code.com
