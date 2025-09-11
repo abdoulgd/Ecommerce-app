@@ -45,7 +45,7 @@ Content-Type: application/json
     "name": "GUINEA"
 }
 
-### Customers not allowed => notFund
+### Customers not allowed => 404 Not Found
 GET http://localhost:8080/api/customers
 
 ###
@@ -63,5 +63,5 @@ POST http://localhost:8080/api/checkout/purchase
 ### find by email
 http://localhost:8080/api/orders/search
 
-###
+### 401 Unauthorized
 GET http://localhost:8080/api/orders/search/findByCustomerEmail?email=john.doe@luv2code.com
