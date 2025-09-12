@@ -24,12 +24,23 @@ export class OrderHistoryComponent implements OnInit {
 
     // read the user's email address from browser storage
     const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
-    if (theEmail) {
+    /*if (theEmail) {
       // retrieve data from the Spring Boot REST API
       this.orderHistoryService.getOrderHistory(theEmail).subscribe(data => {
           this.orderHistoryList = data._embedded.orders;
         });
-    }
+    }*/
+    if (theEmail) {
+    this.orderHistoryService.getOrderHistory(theEmail).subscribe({
+      next: (data) => {
+        this.orderHistoryList = data._embedded.orders;
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération de l\'historique des commandes :', err);
+        // Vous pourriez aussi afficher un message d'erreur à l'utilisateur ici
+      }
+    });
+  }
   }
 
 }

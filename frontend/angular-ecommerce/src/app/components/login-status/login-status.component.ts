@@ -21,6 +21,8 @@ export class LoginStatusComponent {
   constructor() {}
 
   ngOnInit(): void {
+    this.auth.getAccessTokenSilently().subscribe(token => console.log('Token:', token));
+
     this.auth.isAuthenticated$.subscribe((authenticated: boolean) => {
       this.isAuthenticated = authenticated;
       console.log('User is authenticated: ', this.isAuthenticated);

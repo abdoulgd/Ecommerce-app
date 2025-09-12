@@ -24,7 +24,8 @@ export const appConfig: ApplicationConfig = {
     provideAuth0({
       ...myAppConfig.auth,
       httpInterceptor: {
-        ...myAppConfig.httpInterceptor,
+        ...myAppConfig.httpInterceptor
+        //allowedList: myAppConfig.httpInterceptor.allowedList
       },
 
       /*domain: 'dev-caumwi3vx0hpzdnd.us.auth0.com',
