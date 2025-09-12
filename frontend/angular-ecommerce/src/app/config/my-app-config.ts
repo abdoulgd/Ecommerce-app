@@ -4,8 +4,8 @@ const myAppConfig = {
     clientId: 'hoRd1Twrdra3MoekYTaB2wQ31jthUaWA',
     authorizationParams: {
       //redirect_uri: 'http://localhost:4200',
-      //redirect_uri: 'http://localhost:4200/login/callback',
-      redirect_uri: window.location.origin,
+      redirect_uri: 'https://localhost:4200/login/callback',
+      //redirect_uri: window.location.origin,
       //redirect_uri: typeof window !== 'undefined' ? window.location.origin : '',
       //redirect_uri: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:4200',
       audience: 'http://localhost:8080',
