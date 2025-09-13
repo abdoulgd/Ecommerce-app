@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ import { ProductCategory } from '../common/product-category';
 export class ProductService {
   
   private readonly http = inject(HttpClient);
-  private readonly baseUrl = 'http://localhost:8080/api/products';
-  private readonly categoryUrl = 'http://localhost:8080/api/product-category';
+  private readonly baseUrl = `${environment.luv2shopApiUrl}/products`;
+  private readonly categoryUrl = `${environment.luv2shopApiUrl}/product-category`;
 
   constructor() { }
 
@@ -22,14 +23,16 @@ export class ProductService {
     return this.http.get<Product>(productUrl);
   }
 
-  getProductListPaginate(
-                          thePage: number, 
+  getProductListPaginate(thePage: number, 
                           thePageSize: number, 
                           theCategoryId: number
                         ): Observable<GetResponseProducts> {
     // need to build URL based on category id, page and size
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`;
+
+    console.log(`Getting products from URL: ${searchUrl}`);
+
     return this.http.get<GetResponseProducts>(searchUrl);
   }
 
@@ -47,14 +50,14 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
-  searchProductsPaginate( 
-                          thePage: number,
+  searchProductsPaginate(thePage: number,
                           thePageSize: number,
                           theKeyword: string
                         ): Observable<GetResponseProducts> {
     // need to build URL based on keyword, page and size
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`
                     + `&page=${thePage}&size=${thePageSize}`;
+
     return this.http.get<GetResponseProducts>(searchUrl);
   }
 

@@ -3,13 +3,14 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { Country } from '../common/country';
 import { State } from '../common/state';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  private readonly countriesUrl = 'http://localhost:8080/api/countries';
-  private readonly statesUrl = 'http://localhost:8080/api/states';
+  private readonly countriesUrl = `${environment.luv2shopApiUrl}/countries`
+  private readonly statesUrl = `${environment.luv2shopApiUrl}/states`;
 
   private readonly httpClient = inject(HttpClient);
 

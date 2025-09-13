@@ -74,7 +74,18 @@ For more information on using the Angular CLI, including detailed command refere
         - git push origin main
 ```
 
-### Pour montrer les processus en cours
+## To show the current processes
 - lsof -i :4200 => ex: port Angular 4200
-### Pour killer un processus
+
+## To killer a process
 - kill -9 <PID>
+
+## Environments
+- npm start -- --configuration=development or npm start
+- npm start -- --configuration=production
+- npm start -- --configuration=qa
+
+## And change server pon in Backend spring boot example:
+- server.port=8443 or 
+- server.port=9898
+
